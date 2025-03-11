@@ -1,0 +1,93 @@
+.sidebar {
+    width: 240px;
+    background: #f4f5f7;
+    height: 100vh;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    transition: width 0.3s ease;
+  }
+  
+  .sidebar.collapsed {
+    width: 90px;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+  }
+  
+  .jira-logo {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .jira-title {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  nav{
+    flex-grow: 1;
+    padding-top: 05px;
+    overflow-y: auto;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap:10px;
+    text-decoration: none;
+    color: #172b4d;
+    transition: background 0.3s;
+  }
+  
+  .nav-item:hover {
+    background: #e4e6ea;
+  }
+  
+  .submenu {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-footer {
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: #f4f5f7;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .invite-button {
+    width: 70%;
+    background: #0052cc;
+    color: white;
+    border: none;
+    padding: 08px;
+    cursor: pointer;
+  }
+  
+  .invite-button:hover {
+    background: #0747a6;
+  }
+  
