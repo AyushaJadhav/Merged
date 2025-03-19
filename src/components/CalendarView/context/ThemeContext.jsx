@@ -1,16 +1,13 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-export const ThemeContext = createContext(); // Ensure this is correct
+export const ThemeContext = createContext(); // Ensure 'ThemeContext' is exported
 
-const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
 
-  useEffect(() => {
-    document.body.className = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -19,4 +16,5 @@ const ThemeProvider = ({ children }) => {
   );
 };
 
-export default ThemeProvider;
+// Correct export for consuming context
+export const useTheme = () => useContext(ThemeContext);

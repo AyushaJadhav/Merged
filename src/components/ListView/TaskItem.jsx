@@ -15,16 +15,11 @@ initializeIcons();
 const styles = mergeStyleSets({
   taskItem: {
     display: "grid",
-    gridTemplateColumns: "40px 1fr 150px 150px 150px auto",
+    gridTemplateColumns: "40px 2fr 1fr 1fr 1fr auto", // Adjusted columns for better alignment
     alignItems: "center",
     padding: "8px 16px",
     borderBottom: "1px solid #eee",
     gap: "12px",
-
-
-
-
-
   },
   
   taskTitle: {
@@ -37,7 +32,7 @@ const styles = mergeStyleSets({
     alignItems: "center",
     gap: "6px",
     justifyContent: "left",
-    paddingLeft: "20px",
+    paddingLeft: "0px",  // Removed extra padding
   },
   statusLabel: {
     borderRadius: "4px",
@@ -53,12 +48,9 @@ const styles = mergeStyleSets({
     color: "#0078D4",
   },
   assigneeLabel: {
-    marginRight: "8px",
-    textAlign: "right",
+    textAlign: "left", // Changed from right to left for alignment
     alignSelf: "start",
-    paddingLeft: "20px", 
-
-
+    paddingLeft: "0px", // Removed extra padding
   },
   categoryLabel: {
     padding: "4px 8px",

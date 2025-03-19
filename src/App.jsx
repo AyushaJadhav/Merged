@@ -3,11 +3,13 @@ import { PrimaryButton, Stack, TextField } from '@fluentui/react';
 import Sidebar from "./components/SideBar/SideBar";
 import ListBoard from "./components/ListView/ListBoard";
 import Calendar from "./components/CalendarView/Calendar";
+import ContainerGrid from "./components/SprintPlanning/ContainerGrid";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Context & Hooks
 import { useTheme } from "./components/KanbanBoard/context/ThemeContext";
 import { useKanban } from './components/KanbanBoard/hooks/useKanban';
-import ThemeProvider from "./components/CalendarView/context/ThemeContext";
+
 
 
 // Components
@@ -26,6 +28,11 @@ const App = () => {
 
   const { tasks: originalTasks, addTask, handleDragEnd, handleDeleteTask } = useKanban();
   const [filteredTasks, setFilteredTasks] = useState(originalTasks);
+
+
+<Routes>
+    <Route path="/kanbanBoard" element={<Board />} />
+  </Routes>
 
   useEffect(() => {
     if (!searchQuery) {
@@ -52,6 +59,7 @@ const App = () => {
   };
 
   return (
+    
     <div style={{
       padding: '24px',
       background: theme.palette.white,
@@ -129,9 +137,14 @@ const App = () => {
         onDismiss={() => setIsDialogOpen(false)}
         onSubmit={handleAddTask}
       />
-       <Calendar />
+       
 
+
+       
+ 
     </div>
+    
+    
   );
 };
 
