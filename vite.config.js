@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   resolve: {
     alias: {
-      '@': '/src'
+      '@': '/src',
+      '@fluentui/react-v9': '@fluentui/react-components' 
     }
   },
   plugins: [react()],

@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { PrimaryButton, Stack, TextField } from '@fluentui/react';
 import Sidebar from "./components/SideBar/SideBar";
 import ListBoard from "./components/ListView/ListBoard";
+import Calendar from "./components/CalendarView/Calendar";
+
 // Context & Hooks
 import { useTheme } from "./components/KanbanBoard/context/ThemeContext";
 import { useKanban } from './components/KanbanBoard/hooks/useKanban';
+import ThemeProvider from "./components/CalendarView/context/ThemeContext";
+
 
 // Components
 import Header from './components/KanbanBoard/ui/Header';
@@ -125,6 +129,8 @@ const App = () => {
         onDismiss={() => setIsDialogOpen(false)}
         onSubmit={handleAddTask}
       />
+       <Calendar />
+
     </div>
   );
 };

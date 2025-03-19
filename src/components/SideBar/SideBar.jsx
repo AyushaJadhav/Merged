@@ -57,7 +57,7 @@ const Sidebar = () => {
       ],
     },
     { name: "Apps", url: "/apps", icon: <Apps20Filled /> },
-    { name: "Plans", url: "/listView", icon: <SlideAdd20Filled /> },
+    { name: "Plans", url: "/calendarView", icon: <SlideAdd20Filled /> },
     { name: "Recent", url: "/recent", icon: <AppRecent20Filled /> },
     { name: "Projects", url: "/kanbanBoard", icon: <TaskListSquareDatabase20Filled /> },
     { name: "Dashboards", url: "/dashBoard", icon: <Clipboard20Filled /> },

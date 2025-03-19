@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
 import { DragDropContext } from 'react-beautiful-dnd';
+import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
 import Column from './Column';
 import { columns } from "../constants/columns";
- // Absolute path
- import { initialTasks } from '../data/initialTasks'; // Adjust path if needed
-
-
-import { Dialog, DialogType, PrimaryButton, useTheme } from '@fluentui/react';
+import { initialTasks } from '../data/initialTasks'; 
+import { Dialog, DialogType, PrimaryButton, DefaultButton, useTheme } from '@fluentui/react'; // ✅ Added DefaultButton
 import TaskForm from '../forms/TaskForm';
 
 const Board = ({
@@ -18,6 +15,7 @@ const Board = ({
 }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const theme = useTheme();
+  const navigate = useNavigate(); // ✅ Initialize useNavigate
 
   const onDragEnd = (result) => {
     if (!result.destination) return; 
@@ -37,7 +35,19 @@ const Board = ({
 
   return (
     <>
-      <div style={{ padding: '16px', display: 'flex', justifyContent: 'flex-end' }}>
+      <div style={{ padding: '16px', display: 'flex', justifyContent: 'space-between' }}>
+        <DefaultButton 
+          text="List" 
+          onClick={() => navigate('/ListView')} // ✅ Navigate to ListView
+          styles={{
+            root: {
+              marginRight: '8px',
+              borderRadius: '4px',
+              backgroundColor: theme.palette.neutralLighter,
+            }
+          }}
+        />
+        
         <PrimaryButton 
           iconProps={{ iconName: 'Add' }} 
           onClick={() => setIsDialogOpen(true)}
@@ -60,21 +70,17 @@ const Board = ({
       </div>
       
       <DragDropContext onDragEnd={onDragEnd}>
-  <div style={{ display: 'flex', overflowX: 'auto', padding: '8px 0 24px 0' }}>
-    {columns.map((column) => (
-      <Column
-        key={column.id}
-        column={column}
-        tasks={tasks?.[column.id] || []} // ✅ Added fallback to prevent undefined error
-        onDeleteTask={handleDeleteTask}
-      />
-    ))}
-  </div>
-</DragDropContext>
-
-
-
-
+        <div style={{ display: 'flex', overflowX: 'auto', padding: '8px 0 24px 0' }}>
+          {columns.map((column) => (
+            <Column
+              key={column.id}
+              column={column}
+              tasks={tasks?.[column.id] || []}
+              onDeleteTask={handleDeleteTask}
+            />
+          ))}
+        </div>
+      </DragDropContext>
 
       <Dialog
         hidden={!isDialogOpen}
@@ -92,7 +98,5 @@ const Board = ({
     </>
   );
 };
-
-
 
 export default Board;

@@ -8,6 +8,7 @@ import Board from "./components/KanbanBoard/Board/Board";
 import SignupPage from "./components/AuthenticationSignup/SignupPage";
 import LoginPage from "./components/AuthenticationSignup/LoginPage";
 import Dashboard from "./components/AuthenticationSignup/DashBoard";
+import CalendarView from "./components/CalendarView/Calendar";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -35,6 +36,7 @@ const RoutesComponent = () => {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/listView" element={<ListBoard />} />
           <Route path="/kanbanBoard" element={<App />} />
+          <Route path="/calendarView" element={<CalendarView />} />
         </Routes>
       </Layout>
     </Router>
