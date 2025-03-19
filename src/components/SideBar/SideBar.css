@@ -4,13 +4,17 @@
     height: 100vh;
     transition: width 0.3s ease;
     overflow: hidden;
-    position: relative;
+    position: fixed;
     display: flex;
     flex-direction: column;
     font-family: "Segoe UI", sans-serif;
     font-size: 14px;
     font-weight: normal;
     transition: width 0.3s ease;
+    align-self: flex-start;
+    border-right: 2px solid #e0e0e0;
+    margin-left: 0;
+    padding: 0;
   }
   
   .sidebar.collapsed {
@@ -22,23 +26,30 @@
     align-items: center;
     padding: 10px;
     justify-content: space-between;
+    position: relative;
+    z-index: 2;
   }
   
   .jira-logo {
     width: 30px;
     height: 30px;
+    padding: 40px;
   }
   
   .jira-title {
     font-weight: bold;
     font-size: 16px;
+    position: relative;
+    
   }
   
   .toggle-btn {
+    position: absolute;
     background: none;
     border: none;
     cursor: pointer;
     font-size: 18px;
+    display: block;
   }
   
   nav{
@@ -69,6 +80,7 @@
   
   .sidebar-footer {
     margin-top: auto;
+    border-top: 1px solid #e0e0e0;
     position: absolute;
     bottom: 0;
     width: 100%;

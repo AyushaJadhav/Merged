@@ -1,11 +1,14 @@
-import { StrictMode } from 'react'
+
+import React from "react";
 import ReactDOM from "react-dom/client";
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App'
-import { BrowserRouter } from "react-router-dom";
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+
+import { ThemeProvider } from "./components/KanbanBoard/context/ThemeContext";
+import RoutesComponent from "./routes";
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <ThemeProvider>
+      <RoutesComponent />
+    </ThemeProvider>
+  </React.StrictMode>
 );

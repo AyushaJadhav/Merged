@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import {
   Star20Filled,
@@ -56,10 +57,10 @@ const Sidebar = () => {
       ],
     },
     { name: "Apps", url: "/apps", icon: <Apps20Filled /> },
-    { name: "Plans", url: "/plans", icon: <SlideAdd20Filled /> },
+    { name: "Plans", url: "/listView", icon: <SlideAdd20Filled /> },
     { name: "Recent", url: "/recent", icon: <AppRecent20Filled /> },
-    { name: "Projects", url: "/projects", icon: <TaskListSquareDatabase20Filled /> },
-    { name: "Dashboards", url: "/dashboards", icon: <Clipboard20Filled /> },
+    { name: "Projects", url: "/kanbanBoard", icon: <TaskListSquareDatabase20Filled /> },
+    { name: "Dashboards", url: "/dashBoard", icon: <Clipboard20Filled /> },
     { name: "Teams", url: "/teams", icon: <PeopleTeam20Filled /> },
     { name: "Customize sidebar", url: "/customize-sidebar", icon: <LauncherSettings20Filled /> },
   ];
@@ -69,7 +70,12 @@ const Sidebar = () => {
       <div className="sidebar-header">
         <img src={jiraLogo} alt="Jira Logo" className="jira-logo" />
         {!isCollapsed && <span className="jira-title">JIRA</span>}
-        <button className="toggle-btn" onClick={() => setIsCollapsed(!isCollapsed)}>☰</button>
+        <button
+          className="toggle-btn"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+        >
+          ☰
+        </button>
       </div>
 
       <nav>
