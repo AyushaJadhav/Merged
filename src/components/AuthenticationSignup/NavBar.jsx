@@ -5,7 +5,7 @@ import { Persona, PersonaSize } from "@fluentui/react/lib/Persona";
 import { Callout, DirectionalHint } from "@fluentui/react/lib/Callout";
 import { initializeIcons } from "@fluentui/react/lib/Icons";
 import { useNavigate } from "react-router-dom";
-
+import { SearchBox } from "@fluentui/react/lib/SearchBox";
 initializeIcons();
 
 const Navbar = () => {
@@ -98,6 +98,16 @@ const Navbar = () => {
         />
         Jira
       </span>
+
+
+      <div style={{ flexGrow: 1, marginLeft: "20px" }}>
+        <SearchBox
+          placeholder="Search..."
+          underlined
+          styles={{ root: { maxWidth: "400px" } }}
+        />
+      </div>
+
 
       {/* Navigation Items */}
       <div style={{ display: "flex", flexGrow: 1, color: "black", justifyContent: "flex-start", gap: "15px", marginLeft: "20px" }}>

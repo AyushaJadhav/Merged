@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import Column from './Column';
 import { columns } from "../constants/columns";
 import { initialTasks } from '../data/initialTasks'; 
-import { Dialog, DialogType, PrimaryButton, DefaultButton, useTheme } from '@fluentui/react'; // ✅ Added DefaultButton
+import { Dialog, DialogType, PrimaryButton, DefaultButton, useTheme } from '@fluentui/react';
 import TaskForm from '../forms/TaskForm';
 
 const Board = ({
@@ -15,7 +15,7 @@ const Board = ({
 }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const theme = useTheme();
-  const navigate = useNavigate(); // ✅ Initialize useNavigate
+  const navigate = useNavigate();
 
   const onDragEnd = (result) => {
     if (!result.destination) return; 
@@ -36,18 +36,29 @@ const Board = ({
   return (
     <>
       <div style={{ padding: '16px', display: 'flex', justifyContent: 'space-between' }}>
-        <DefaultButton 
-          text="List" 
-          onClick={() => navigate('/ListView')} // ✅ Navigate to ListView
-          styles={{
-            root: {
-              marginRight: '8px',
-              borderRadius: '4px',
-              backgroundColor: theme.palette.neutralLighter,
-            }
-          }}
-        />
-        
+        <div style={{ display: "flex", gap: "8px" }}>
+          <DefaultButton 
+            text="List" 
+            onClick={() => navigate('/ListView')}
+            styles={{
+              root: {
+                borderRadius: '4px',
+                backgroundColor: theme.palette.neutralLighter,
+              }
+            }}
+          />
+          <DefaultButton
+            text="Sprint"
+            onClick={() => navigate("/sprintPlanning")}
+            styles={{
+              root: {
+                backgroundColor: theme.palette.neutralLighter,
+                borderRadius: "4px",
+              }
+            }}
+          />
+        </div>
+
         <PrimaryButton 
           iconProps={{ iconName: 'Add' }} 
           onClick={() => setIsDialogOpen(true)}
